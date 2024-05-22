@@ -14,6 +14,12 @@ typedef struct Student
 
 }Student;
 
+typedef struct Sysuser
+{
+	string user_name;
+	string user_password; 
+} Sysuser;
+
 class StudentManager
 {
 	StudentManager();
@@ -22,10 +28,11 @@ class StudentManager
 public:
 	static StudentManager* GetInstance() //µ¥ÀıÄ£Ê½
 	{
-		static StudentManager StudentManager;
-		return &StudentManager;
+		static StudentManager instance;
+		return &instance;
 	}
 public:
+	bool user_enter(Sysuser& t);
 	bool insert_student(Student & t);
 	bool update_student(Student& t);
 	bool delete_student(int student_id);
